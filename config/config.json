@@ -11,7 +11,13 @@
 
     "middleware": {
 
-        
+        "appsec": {
+            "module": {
+                "arguments": [{
+                    "csrf": false
+                }]
+            }
+        },
 
         "static": {
             "module": {

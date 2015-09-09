@@ -1,14 +1,7 @@
 {
-
-    
-
-    
-
-    
-
-    "specialization": {
+    "db": {
+        "url": "mongodb://localhost/todos"
     },
-
     "middleware": {
 
         "appsec": {

@@ -2,6 +2,7 @@
 
 var express = require('express');
 var kraken = require('kraken-js');
+var mongoose = require('mongoose');
 
 
 var options, app;
@@ -16,6 +17,17 @@ options = {
          * Add any additional config setup or overrides here. `config` is an initialized
          * `confit` (https://github.com/krakenjs/confit/) configuration object.
          */
+
+        mongoose.connect(config.get('db').url);
+        var db = mongoose.connection;
+
+        db.on('error', function(err) {
+            console.log(err);
+        });
+        db.on('open', function() {
+            console.log('connection is established');
+        });
+
         next(null, config);
     }
 };

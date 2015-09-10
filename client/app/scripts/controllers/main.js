@@ -8,10 +8,11 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function (taskService) {
+    'ngInject';
+
+    this.tasks = taskService.getTasks();
+    this.addTask = () =>{
+      taskService.addTask(this.newTaskTitle);
+    }
   });

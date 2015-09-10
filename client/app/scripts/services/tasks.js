@@ -15,5 +15,10 @@ angular.module('clientApp')
     this.deleteTask = function(taskId) {
       return $http.delete(this._serviceUrl + '/' + taskId)
     };
+
+    this.updateTask = function(task) {
+      return $http.put(this._serviceUrl + '/' + task._id, {title: task.title, completed: task.completed});
+    };
+
     return this;
   });

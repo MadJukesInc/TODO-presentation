@@ -12,23 +12,29 @@ angular.module('clientApp')
     'ngInject';
     let self = this;
 
-    function init() {
+    this.init = () => {
       taskService.getTasks().then((response) => {
         self.tasks = response.data;
       });
     };
 
-    init();
+    this.init();
 
     this.addTask = () => {
-      taskService.addTask({title: this.newTaskTitle}).then(function () {
-        init();
+      taskService.addTask({title: this.newTaskTitle}).then(() => {
+        this.init();
+      });
+    };
+
+    this.updateTask = (task) => {
+      taskService.updateTask(task).then(() => {
+        this.init();
       });
     };
 
     this.deleteTask = (task) => {
-      taskService.deleteTask(task._id).then(function () {
-        init();
+      taskService.deleteTask(task._id).then(() => {
+        this.init();
       });
     };
   })

@@ -22,6 +22,11 @@
             "module": {
                 "arguments": [{ "directory": "path:./controllers" }]
             }
+        },
+        "cors": {
+          "module": "cors",
+            "enabled": true
+          
         }
 
     }

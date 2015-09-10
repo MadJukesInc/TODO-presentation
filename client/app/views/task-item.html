@@ -1,0 +1,12 @@
+
+  <div class="content">
+    <div class="header">
+      {{taskItem.task.title}}
+    </div>
+    <input type="checkbox" ng-click="taskItem.taskCtrl.updateTask(taskItem.task)" ng-model="taskItem.task.completed"/>
+    Completed
+  </div>
+  <div class="right floated content">
+    <button ng-click="taskItem.taskCtrl.deleteTask(taskItem.task)" class="ui button">Delete</button>
+  </div>
+</div>

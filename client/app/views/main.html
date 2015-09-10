@@ -4,27 +4,18 @@
   </div>
   <div class="ui centered content">
     <div class="ui input action">
-      <input ng-model="main.newTaskTitle" type="text" />
+      <input ng-model="main.newTaskTitle" type="text"/>
       <button class="ui button icon" ng-click="main.addTask()">
         <i class="icon plus"></i>
       </button>
     </div>
 
   </div>
-  <div class="ui content">
-    <div class="ui celled list">
-      <div ng-repeat="task in main.tasks" class="item">
-        <div class="content">
-          <div class="header">
-            {{task.title}}
-          </div>
-          <input type="checkbox" ng-click="main.updateTask(task)" ng-model="task.complete"/>
-          Completed
-        </div>
-        <div class="right floated content">
-          <button ng-click="main.deleteTask(task)" class="ui button">Delete</button>
-        </div>
-      </div>
-    </div>
+</div>
+<div class="ui content">
+  <div class="ui three stackable cards">
+    <div class="card" task-item task="task" tasks="main.tasks" ng-repeat="task in main.tasks"></div>
+
   </div>
 </div>
+

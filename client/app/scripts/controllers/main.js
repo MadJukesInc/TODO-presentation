@@ -10,9 +10,26 @@
 angular.module('clientApp')
   .controller('MainCtrl', function (taskService) {
     'ngInject';
+    let self = this;
 
-    this.tasks = taskService.getTasks();
-    this.addTask = () =>{
-      taskService.addTask(this.newTaskTitle);
-    }
-  });
+    function init() {
+      taskService.getTasks().then((response) => {
+        self.tasks = response.data;
+      });
+    };
+
+    init();
+
+    this.addTask = () => {
+      taskService.addTask({title: this.newTaskTitle}).then(function () {
+        init();
+      });
+    };
+
+    this.deleteTask = (task) => {
+      taskService.deleteTask(task._id).then(function () {
+        init();
+      });
+    };
+  })
+;

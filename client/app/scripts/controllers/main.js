@@ -23,6 +23,7 @@ angular.module('clientApp')
     this.addTask = () => {
       taskService.addTask({title: this.newTaskTitle}).then(() => {
         this.init();
+        this.newTaskTitle = "";
       });
     };
 

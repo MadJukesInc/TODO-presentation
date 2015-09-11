@@ -8,7 +8,10 @@
     </div>
     <div class="column ten wide">
       <div class="ui header">
-        {{taskItem.task.title}}
+        <div ng-switch="!!taskItem.task.completed">
+          <s ng-switch-when="true">{{taskItem.task.title}}</s>
+          <p ng-switch-when="false">{{taskItem.task.title}}</p>
+        </div>
       </div>
     </div>
     <div class="column four wide right floated">

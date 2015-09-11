@@ -1,21 +1,16 @@
-<div class="ui segment">
-  <div class="header">
-    <h3>Task List</h3>
-  </div>
-  <div class="ui centered content">
-    <div class="ui input action">
-      <input ng-model="main.newTaskTitle" type="text"/>
-      <button class="ui button icon" ng-click="main.addTask()">
-        <i class="icon plus"></i>
-      </button>
-    </div>
-
+<div class="ui top attached segment">
+  <div class="ui center aligned large header">
+    Task List
   </div>
 </div>
-<div class="ui content">
-  <div class="ui three stackable cards">
-    <div class="card" task-item task="task" tasks="main.tasks" ng-repeat="task in main.tasks"></div>
-
+<div class="ui attached segment">
+  <div class="ui input action" style="width: 100%">
+    <input type="text" ng-model="main.newTaskTitle"/>
+    <button class="ui button icon" ng-click="main.addTask()">
+      <i class="icon plus"></i>
+    </button>
   </div>
 </div>
-
+<div class="ui bottom attached segment">
+  <div class="segment" task-item task="task" tasks="main.tasks" ng-repeat="task in main.tasks"></div>
+</div>

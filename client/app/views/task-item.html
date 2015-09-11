@@ -1,12 +1,21 @@
-
-  <div class="content">
-    <div class="header">
-      {{taskItem.task.title}}
+<div class="ui segment">
+  <div class="ui three column grid middle aligned">
+    <div class="column two wide">
+      <div class="ui fitted checkbox">
+        <input type="checkbox" ng-click="taskItem.taskCtrl.updateTask(taskItem.task)" ng-model="taskItem.task.completed"/>
+        <label></label>
+      </div>
     </div>
-    <input type="checkbox" ng-click="taskItem.taskCtrl.updateTask(taskItem.task)" ng-model="taskItem.task.completed"/>
-    Completed
-  </div>
-  <div class="right floated content">
-    <button ng-click="taskItem.taskCtrl.deleteTask(taskItem.task)" class="ui button">Delete</button>
+    <div class="column ten wide">
+      <div class="ui header">
+        {{taskItem.task.title}}
+      </div>
+    </div>
+    <div class="column four wide right floated">
+      <button class="ui red circular inverted icon button right floated"
+        ng-click="taskItem.taskCtrl.deleteTask(taskItem.task)">
+        <i class="trash icon"></i>
+      </button>
+    </div>
   </div>
 </div>

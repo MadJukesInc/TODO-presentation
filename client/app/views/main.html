@@ -3,14 +3,16 @@
     Task List
   </div>
 </div>
-<div class="ui attached segment">
-  <div class="ui input action" style="width: 100%">
-    <input type="text" ng-model="main.newTaskTitle"/>
-    <button class="ui button icon" ng-click="main.addTask()">
-      <i class="icon plus"></i>
-    </button>
-  </div>
+<div class="ui attached center aligned segment">
+  <form class="ui form">
+    <div class="ui input action">
+      <input type="text" ng-model="main.newTaskTitle"/>
+      <button class="ui button icon" type="submit" ng-click="main.addTask()">
+        <i class="icon plus"></i>
+      </button>
+    </div>
+  </form>
 </div>
 <div class="ui bottom attached segment">
-  <div class="segment" task-item task="task" tasks="main.tasks" ng-repeat="task in main.tasks"></div>
+  <div class="segment" task-item task="task" tasks="main.tasks" ng-repeat="task in main.tasks | filter:main.newTaskTitle"></div>
 </div>
